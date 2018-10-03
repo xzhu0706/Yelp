@@ -41,6 +41,12 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         fetchRestaurants(term: "Restaurants", offset: nil)
     }
     
+    @IBAction func didTapOnCell(_ sender: Any) {
+        if searchBar.isFirstResponder {
+            self.searchBar.endEditing(true)
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
             // Calculate the position of one screen length before the bottom of the results
@@ -77,10 +83,13 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
                     print(business.address!)
                 }
             }
+            self.searchBar.endEditing(true)
             self.isMoreDataLoading = false
             self.loadingMoreView?.stopAnimating()
         })
+        
         self.offset += 20
+        
         /* Example of Yelp search with more search options specified
         Business.searchWithTerm(term: term, sort: .distance, categories: ["asianfusion", "burgers"]) { (businesses, error) in
             self.businesses = businesses

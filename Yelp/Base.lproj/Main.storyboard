@@ -106,6 +106,7 @@
                                                 <constraint firstItem="Yms-BE-ago" firstAttribute="leading" secondItem="P8V-VO-BrB" secondAttribute="leading" id="y5I-CA-bkk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="addressLabel" destination="Yms-BE-ago" id="Nk5-R0-sGU"/>
                                             <outlet property="categoriesLabel" destination="P8V-VO-BrB" id="20u-Fb-rYu"/>
@@ -117,6 +118,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eUo-oI-mzH" appends="YES" id="6Uz-zA-Hae"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -133,6 +137,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eUo-oI-mzH">
+                    <connections>
+                        <action selector="didTapOnCell:" destination="2xI-yr-O5N" id="yXS-od-c5a"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2727.1999999999998" y="357.57121439280365"/>
         </scene>
